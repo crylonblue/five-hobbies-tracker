@@ -40,8 +40,8 @@ export function Login() {
       </div>
 
       <p className="login-footnote fade-in" style={{ animationDelay: "0.16s" }}>
-        Your progress lives in this browser — pick your name any time to switch.
-        Use the same device to see each other's stats side by side.
+        Pick your name any time to switch. Entries sync to a shared space, so
+        you'll both see each other's progress — from any device.
       </p>
     </div>
   );

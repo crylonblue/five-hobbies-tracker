@@ -1,11 +1,11 @@
 export type UserId = "till" | "nicola";
 
 export type CategoryId =
-  | "money"
-  | "fitness"
+  | "grow"
+  | "health"
   | "creative"
-  | "knowledge"
-  | "mindset";
+  | "connect"
+  | "peaceful";
 
 export interface LogEntry {
   id: string;

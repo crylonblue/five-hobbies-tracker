@@ -124,6 +124,22 @@ h4 {
   }
 }
 
+.syncing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 60dvh;
+  color: var(--text-faint);
+  font-size: 14.5px;
+}
+
+.syncing .login-logo {
+  width: 54px;
+  height: 54px;
+}
+
 /* ============================================================= *
  *  Login / name picker
  * ============================================================= */

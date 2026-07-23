@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Flame, Plus, Sparkles, Trophy, X } from "lucide-react";
 import { CATEGORIES, CATEGORY_MAP, PEOPLE_MAP } from "./lib/categories";
 import type { Category } from "./lib/categories";
-import { useCurrentUser, useEntries } from "./lib/store";
+import { useCurrentUser, useEntries, useEntriesStore } from "./lib/store";
 import {
   balanceScore,
   countByCategory,
@@ -19,7 +19,7 @@ import { LogModal } from "./components/LogModal";
 
 export default function App() {
   const user = useCurrentUser();
-  const entries = useEntries();
+  const { entries, loading } = useEntriesStore();
   const [active, setActive] = useState<CategoryId | null>(null);
   const [picking, setPicking] = useState(false);
 
@@ -30,6 +30,18 @@ export default function App() {
     setPicking(false);
     setActive(id);
   };
+
+  if (loading && entries.length === 0) {
+    return (
+      <div className="app-shell">
+        <TopBar user={user} />
+        <div className="syncing fade-in">
+          <img src="/favicon.svg" alt="" className="login-logo" />
+          <p>Syncing your hobbies…</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="app-shell">
